@@ -145,13 +145,15 @@ function Alliance() {
       <div className="grid md:grid-cols-2 gap-6 mt-16">
         {[
           {
-            icon: <Layers className="w-6 h-6" />,
+            logo: paraleloLogo,
+            logoClass: "h-9",
             title: "Paralelo",
             text: "Diseño y desarrollo de sistemas digitales a medida. Plataformas robustas, escalables y adaptadas al contexto municipal.",
             tag: "Tecnología",
           },
           {
-            icon: <Megaphone className="w-6 h-6" />,
+            logo: enfoqueLogo,
+            logoClass: "h-7 brightness-0 invert opacity-90",
             title: "Enfoque Misiones",
             text: "Comunicación estratégica y posicionamiento institucional. Convertimos datos en historias, contenido y participación.",
             tag: "Comunicación",
@@ -163,10 +165,8 @@ function Alliance() {
             transition={{ ...fadeUp.transition, delay: i * 0.1 }}
             className="glass rounded-3xl p-8 hover:border-eco/40 transition-colors group"
           >
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-eco/20 to-aqua/20 flex items-center justify-center text-eco group-hover:scale-110 transition-transform">
-                {c.icon}
-              </div>
+            <div className="flex items-center justify-between mb-6 gap-4">
+              <img src={c.logo} alt={c.title} className={`${c.logoClass} object-contain`} />
               <span className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</span>
             </div>
             <h3 className="text-2xl font-semibold mb-3 font-display">{c.title}</h3>
