@@ -7,6 +7,9 @@ import {
   Target, Eye, Megaphone, Zap, CheckCircle2, Globe, Database, Layers,
   TrendingUp, Award, Recycle, ChevronDown,
 } from "lucide-react";
+import paraleloLogo from "@/assets/paralelo-logo.png";
+import enfoqueLogo from "@/assets/enfoque-logo.png";
+import muniLogo from "@/assets/municipalidad-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -108,10 +111,22 @@ function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 flex items-center gap-2 text-xs text-muted-foreground"
+        className="relative z-10 flex flex-col gap-6"
       >
-        <ChevronDown className="w-4 h-4 animate-bounce" />
-        Desplazá para descubrir la propuesta
+        <div className="glass rounded-2xl px-6 py-5 flex flex-wrap items-center justify-between gap-6">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Una iniciativa de</span>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+            <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-10 md:h-12 object-contain brightness-0 invert opacity-90" />
+            <div className="w-px h-8 bg-white/10 hidden md:block" />
+            <img src={paraleloLogo} alt="Paralelo" className="h-7 md:h-8 object-contain" />
+            <div className="w-px h-8 bg-white/10 hidden md:block" />
+            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-6 md:h-7 object-contain brightness-0 invert opacity-90" />
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <ChevronDown className="w-4 h-4 animate-bounce" />
+          Desplazá para descubrir la propuesta
+        </div>
       </motion.div>
     </section>
   );
@@ -130,13 +145,15 @@ function Alliance() {
       <div className="grid md:grid-cols-2 gap-6 mt-16">
         {[
           {
-            icon: <Layers className="w-6 h-6" />,
+            logo: paraleloLogo,
+            logoClass: "h-9",
             title: "Paralelo",
             text: "Diseño y desarrollo de sistemas digitales a medida. Plataformas robustas, escalables y adaptadas al contexto municipal.",
             tag: "Tecnología",
           },
           {
-            icon: <Megaphone className="w-6 h-6" />,
+            logo: enfoqueLogo,
+            logoClass: "h-7 brightness-0 invert opacity-90",
             title: "Enfoque Misiones",
             text: "Comunicación estratégica y posicionamiento institucional. Convertimos datos en historias, contenido y participación.",
             tag: "Comunicación",
@@ -148,10 +165,8 @@ function Alliance() {
             transition={{ ...fadeUp.transition, delay: i * 0.1 }}
             className="glass rounded-3xl p-8 hover:border-eco/40 transition-colors group"
           >
-            <div className="flex items-center justify-between mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-eco/20 to-aqua/20 flex items-center justify-center text-eco group-hover:scale-110 transition-transform">
-                {c.icon}
-              </div>
+            <div className="flex items-center justify-between mb-6 gap-4">
+              <img src={c.logo} alt={c.title} className={`${c.logoClass} object-contain`} />
               <span className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</span>
             </div>
             <h3 className="text-2xl font-semibold mb-3 font-display">{c.title}</h3>
@@ -681,18 +696,17 @@ function Conclusion() {
         </div>
       </motion.div>
 
-      <motion.footer {...fadeUp} className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-eco to-aqua flex items-center justify-center">
-            <Droplets className="w-5 h-5 text-ink" />
-          </div>
-          <div>
-            <div className="font-display font-semibold">EcoPuertoRico</div>
-            <div className="text-xs text-muted-foreground">Paralelo × Enfoque Misiones · 2025</div>
-          </div>
+      <motion.footer {...fadeUp} className="mt-20 pt-10 border-t border-white/5 flex flex-col gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
+          <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-12 object-contain brightness-0 invert" />
+          <div className="w-px h-10 bg-white/10" />
+          <img src={paraleloLogo} alt="Paralelo" className="h-8 object-contain" />
+          <div className="w-px h-10 bg-white/10" />
+          <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
         </div>
-        <div className="text-xs text-muted-foreground">
-          Propuesta integral · Documento de trabajo
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
+          <span>EcoPuertoRico · Propuesta integral · 2025</span>
+          <span>Paralelo × Enfoque Misiones · Documento de trabajo</span>
         </div>
       </motion.footer>
     </section>
