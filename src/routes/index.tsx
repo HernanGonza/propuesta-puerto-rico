@@ -705,7 +705,7 @@ function Conclusion() {
           <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <span>EcoPuertoRico · Propuesta integral · 2025</span>
+          <span>EcoPuertoRico · Propuesta integral · 2026</span>
           <span>Paralelo × Enfoque Misiones · Documento de trabajo</span>
         </div>
       </motion.footer>
