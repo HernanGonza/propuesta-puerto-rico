@@ -67,16 +67,20 @@ function Hero() {
         </div>
       </motion.div>
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-eco" />
-          <span className="text-xs tracking-wide">Paralelo × Enfoque Misiones</span>
-        </motion.div>
+      <motion.div style={{ y, opacity }} className="relative z-10 flex justify-between items-start">
+  <div className="flex items-center gap-3">
+    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-eco to-aqua flex items-center justify-center">
+      <Droplets className="w-5 h-5 text-ink" />
+    </div>
+    <div className="font-display font-semibold tracking-tight">EcoPuertoRico</div>
+  </div>
+  
+  {/* Pastilla - más separada */}
+  <div className="hidden md:flex items-center gap-2 glass px-5 py-2.5 rounded-full text-xs mt-1">
+    <span className="w-2 h-2 rounded-full bg-eco animate-pulse" />
+    Paralelo × Enfoque Misiones
+  </div>
+</motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
