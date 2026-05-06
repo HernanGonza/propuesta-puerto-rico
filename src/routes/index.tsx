@@ -7,6 +7,9 @@ import {
   Target, Eye, Megaphone, Zap, CheckCircle2, Globe, Database, Layers,
   TrendingUp, Award, Recycle, ChevronDown,
 } from "lucide-react";
+import paraleloLogo from "@/assets/paralelo-logo.png";
+import enfoqueLogo from "@/assets/enfoque-logo.png";
+import muniLogo from "@/assets/municipalidad-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
