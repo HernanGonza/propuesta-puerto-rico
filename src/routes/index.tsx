@@ -118,15 +118,15 @@ function Hero() {
         className="relative z-10 flex flex-col gap-6"
       >
         <div className="glass rounded-2xl px-6 py-5 flex flex-wrap items-center justify-between gap-6">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Una iniciativa de</span>
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-            <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-10 md:h-12 object-contain brightness-0 invert opacity-90" />
-            <div className="w-px h-8 bg-white/10 hidden md:block" />
-            <img src={paraleloLogo} alt="Paralelo" className="h-7 md:h-8 object-contain" />
-            <div className="w-px h-8 bg-white/10 hidden md:block" />
-            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-6 md:h-7 object-contain brightness-0 invert opacity-90" />
-          </div>
-        </div>
+  <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Una iniciativa de</span>
+  <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+    {/* Logo Municipalidad eliminado */}
+    
+    <img src={paraleloLogo} alt="Paralelo" className="h-8 md:h-9 object-contain" />
+    <div className="w-px h-8 bg-white/10 hidden md:block" />
+    <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 md:h-8 object-contain brightness-0 invert opacity-90" />
+  </div>
+</div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <ChevronDown className="w-4 h-4 animate-bounce" />
           Desplazá para descubrir la propuesta
