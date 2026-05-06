@@ -63,7 +63,7 @@ function Hero() {
         </div>
         <div className="hidden md:flex items-center gap-2 glass px-4 py-2 rounded-full text-xs">
           <span className="w-2 h-2 rounded-full bg-eco animate-pulse" />
-          Propuesta 2025 · Versión integral
+          Documento estratégico · Versión integral
         </div>
       </motion.div>
 
@@ -705,7 +705,7 @@ function Conclusion() {
           <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <span>EcoPuertoRico · Propuesta integral · 2025</span>
+          <span>EcoPuertoRico · Propuesta integral · 2026</span>
           <span>Paralelo × Enfoque Misiones · Documento de trabajo</span>
         </div>
       </motion.footer>
