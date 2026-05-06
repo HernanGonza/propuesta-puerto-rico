@@ -696,18 +696,17 @@ function Conclusion() {
         </div>
       </motion.div>
 
-      <motion.footer {...fadeUp} className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-eco to-aqua flex items-center justify-center">
-            <Droplets className="w-5 h-5 text-ink" />
-          </div>
-          <div>
-            <div className="font-display font-semibold">EcoPuertoRico</div>
-            <div className="text-xs text-muted-foreground">Paralelo × Enfoque Misiones · 2025</div>
-          </div>
+      <motion.footer {...fadeUp} className="mt-20 pt-10 border-t border-white/5 flex flex-col gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
+          <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-12 object-contain brightness-0 invert" />
+          <div className="w-px h-10 bg-white/10" />
+          <img src={paraleloLogo} alt="Paralelo" className="h-8 object-contain" />
+          <div className="w-px h-10 bg-white/10" />
+          <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
         </div>
-        <div className="text-xs text-muted-foreground">
-          Propuesta integral · Documento de trabajo
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
+          <span>EcoPuertoRico · Propuesta integral · 2025</span>
+          <span>Paralelo × Enfoque Misiones · Documento de trabajo</span>
         </div>
       </motion.footer>
     </section>
