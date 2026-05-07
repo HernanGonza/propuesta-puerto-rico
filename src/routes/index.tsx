@@ -11,6 +11,7 @@ import {
 import paraleloLogo from "@/assets/paralelo-logo.png";
 import enfoqueLogo from "@/assets/enfoque-logo.png";
 import muniLogo from "@/assets/municipalidad-logo.png";
+import { url } from "inspector";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -110,9 +111,13 @@ function Hero() {
         <div className="glass rounded-2xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground shrink-0">Una iniciativa de</span>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
+            <a href="https://www.paralelo.tech/" target="_blank" rel="noopener noreferrer">
+              <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
+            </a>
             <div className="w-px h-7 bg-white/10 hidden sm:block" />
-            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-8 object-contain brightness-0 invert opacity-90" />
+            <a href="https://enfoquemisiones.com/" target="_blank" rel="noopener noreferrer">
+              <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-8 object-contain brightness-0 invert opacity-90" />
+            </a>
           </div>
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground pb-2">
@@ -145,6 +150,7 @@ function Alliance() {
             title: "Paralelo",
             text: "Diseño y evolución de plataformas digitales para gestión pública. Servicios escalables, mantenidos de forma centralizada y adaptados al contexto municipal.",
             tag: "Tecnología",
+            url: "https://www.paralelo.tech/",
           },
           {
             logo: enfoqueLogo,
@@ -152,6 +158,7 @@ function Alliance() {
             title: "Enfoque Misiones",
             text: "Comunicación estratégica y posicionamiento institucional. Convertimos datos en historias, contenido y participación ciudadana real.",
             tag: "Comunicación",
+            url: "https://enfoquemisiones.com/",
           },
         ].map((c, i) => (
           <motion.div
@@ -161,7 +168,9 @@ function Alliance() {
             className="glass rounded-3xl p-8 hover:border-eco/40 transition-colors group"
           >
             <div className="flex items-center justify-between mb-6 gap-4">
-              <img src={c.logo} alt={c.title} className={`${c.logoClass} object-contain`} />
+              <a href={c.url} target="_blank" rel="noopener noreferrer">
+                <img src={c.logo} alt={c.title} className={`${c.logoClass} object-contain`} />
+              </a>
               <span className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">{c.text}</p>
@@ -1237,9 +1246,13 @@ function Conclusion() {
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
           <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-12 object-contain brightness-0 invert" />
           <div className="w-px h-10 bg-white/10" />
-          <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
+          <a href="https://www.paralelo.tech/" target="_blank" rel="noopener noreferrer">
+            <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
+          </a>
           <div className="w-px h-10 bg-white/10" />
-          <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
+          <a href="https://enfoquemisiones.com/" target="_blank" rel="noopener noreferrer">
+            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
+          </a>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
           <span>EcoPuertoRico · Propuesta de acceso a plataforma · 2026</span>
