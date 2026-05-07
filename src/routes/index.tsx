@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   Droplets, Users, Store, School, Truck, Building2, MapPin, Trophy,
   BarChart3, Leaf, Sparkles, ArrowRight, Bell, Route as RouteIcon,
   Target, Eye, Megaphone, Zap, CheckCircle2, Globe, Database, Layers,
   TrendingUp, Award, Recycle, ChevronDown, Home, PieChart, User,
-  RefreshCw, HeadphonesIcon, Shield, X, Check,
+  RefreshCw, HeadphonesIcon, Shield, X, Check, Smartphone,
 } from "lucide-react";
 import paraleloLogo from "@/assets/paralelo-logo.png";
 import enfoqueLogo from "@/assets/enfoque-logo.png";
@@ -43,7 +43,7 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex flex-col justify-between px-8 md:px-16 py-12 overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex flex-col px-8 md:px-16 py-10 md:py-14 gap-0 overflow-hidden">
       {/* Animated background orbs */}
       <motion.div
         className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full blur-3xl"
@@ -59,26 +59,26 @@ function Hero() {
       />
 
       {/* Nav bar */}
-      <motion.div style={{ y, opacity }} className="relative z-10 flex justify-between items-start">
+      <motion.div style={{ y, opacity }} className="relative z-10 flex justify-between items-center mb-0">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-eco to-aqua flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-eco to-aqua flex items-center justify-center shrink-0">
             <Droplets className="w-5 h-5 text-ink" />
           </div>
           <div className="font-display font-semibold tracking-tight">EcoPuertoRico</div>
         </div>
-        <div className="hidden md:flex items-center gap-2 glass px-5 py-2.5 rounded-full text-xs mt-1">
+        <div className="hidden md:flex items-center gap-2 glass px-5 py-2.5 rounded-full text-xs">
           <span className="w-2 h-2 rounded-full bg-eco animate-pulse" />
           Paralelo × Enfoque Misiones
         </div>
       </motion.div>
 
-      {/* Hero text */}
-      <motion.div style={{ y, opacity }} className="relative z-10">
+      {/* Hero text — flex-1 so it fills the space between nav and footer */}
+      <motion.div style={{ y, opacity }} className="relative z-10 flex flex-col justify-center flex-1 py-12 md:py-20">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] mb-8"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] mb-6 md:mb-8"
         >
           Ecosistema digital para{" "}
           <span className="text-gradient">programas de economía circular</span>
@@ -88,7 +88,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 font-light"
+          className="text-lg md:text-2xl text-muted-foreground max-w-2xl mb-8 md:mb-12 font-light"
         >
           Gestión · Participación · Impacto · Visibilidad
         </motion.p>
@@ -105,17 +105,17 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Footer bar */}
-      <motion.div style={{ opacity }} className="relative z-10 flex flex-col gap-6">
-        <div className="glass rounded-2xl px-6 py-5 flex flex-wrap items-center justify-between gap-6">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Una iniciativa de</span>
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-            <img src={paraleloLogo} alt="Paralelo" className="h-8 md:h-9 object-contain" />
-            <div className="w-px h-8 bg-white/10 hidden md:block" />
-            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 md:h-8 object-contain brightness-0 invert opacity-90" />
+      {/* Footer bar — siempre al fondo, nunca se superpone */}
+      <motion.div style={{ opacity }} className="relative z-10 flex flex-col gap-4">
+        <div className="glass rounded-2xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground shrink-0">Una iniciativa de</span>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            <img src={paraleloLogo} alt="Paralelo" className="h-8 object-contain" />
+            <div className="w-px h-7 bg-white/10 hidden sm:block" />
+            <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-8 object-contain brightness-0 invert opacity-90" />
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground pb-2">
           <ChevronDown className="w-4 h-4 animate-bounce" />
           Desplazá para descubrir la propuesta
         </div>
@@ -141,14 +141,14 @@ function Alliance() {
         {[
           {
             logo: paraleloLogo,
-            logoClass: "h-9",
+            logoClass: "h-10",
             title: "Paralelo",
             text: "Diseño y evolución de plataformas digitales para gestión pública. Servicios escalables, mantenidos de forma centralizada y adaptados al contexto municipal.",
             tag: "Tecnología",
           },
           {
             logo: enfoqueLogo,
-            logoClass: "h-7 brightness-0 invert opacity-90",
+            logoClass: "h-10 brightness-0 invert opacity-90",
             title: "Enfoque Misiones",
             text: "Comunicación estratégica y posicionamiento institucional. Convertimos datos en historias, contenido y participación ciudadana real.",
             tag: "Comunicación",
@@ -164,7 +164,6 @@ function Alliance() {
               <img src={c.logo} alt={c.title} className={`${c.logoClass} object-contain`} />
               <span className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</span>
             </div>
-            <h3 className="text-2xl font-semibold mb-3 font-display">{c.title}</h3>
             <p className="text-muted-foreground leading-relaxed">{c.text}</p>
           </motion.div>
         ))}
@@ -472,29 +471,52 @@ function Flow() {
 function Features() {
   const groups = [
     {
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "App Móvil EcoPuertoRico",
+      items: ["Disponible en Play Store", "Acceso para vecinos y choferes", "Avisos de aceite disponible", "Seguimiento de retiros en tiempo real"],
+      highlight: true,
+      tag: "App exclusiva",
+      tagColor: "eco",
+    },
+    {
       icon: <Truck className="w-5 h-5" />,
       title: "Panel de Gestión",
       items: ["Registro de entregas", "Historial completo", "Organización de rutas"],
+      highlight: false,
+      tag: null,
+      tagColor: "eco",
     },
     {
       icon: <Bell className="w-5 h-5" />,
       title: "Sistema de Avisos",
       items: ["Vecinos y comercios notifican disponibilidad", "Geolocalización", "Priorización automática"],
+      highlight: false,
+      tag: null,
+      tagColor: "eco",
     },
     {
       icon: <Trophy className="w-5 h-5" />,
       title: "Gamificación",
       items: ["Ranking de barrios", "Ranking de escuelas", "Ranking de comercios", "Certificados digitales"],
+      highlight: false,
+      tag: null,
+      tagColor: "eco",
     },
     {
       icon: <BarChart3 className="w-5 h-5" />,
       title: "Métricas e Impacto",
       items: ["Litros recolectados", "Biodiesel generado", "Reducción de CO₂"],
+      highlight: false,
+      tag: null,
+      tagColor: "eco",
     },
     {
       icon: <Megaphone className="w-5 h-5" />,
       title: "Comunicación Estratégica",
       items: ["Contenido para redes sociales", "Informes institucionales", "Campañas de participación ciudadana"],
+      highlight: false,
+      tag: "Enfoque",
+      tagColor: "aqua",
     },
   ];
   return (
@@ -512,19 +534,44 @@ function Features() {
             key={g.title}
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-            className={`glass rounded-3xl p-8 hover:border-eco/40 transition-colors ${i === 4 ? "md:col-span-2 lg:col-span-1 border-aqua/30" : ""}`}
+            className={`glass rounded-3xl p-8 transition-colors ${
+              g.highlight
+                ? "border-eco/50 bg-gradient-to-br from-eco/10 to-aqua/5 lg:col-span-1"
+                : g.tagColor === "aqua"
+                ? "border-aqua/30 hover:border-aqua/50"
+                : "hover:border-eco/40"
+            }`}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${i === 4 ? "bg-aqua/20 text-aqua" : "bg-gradient-to-br from-eco/20 to-aqua/20 text-eco"}`}>
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                g.highlight ? "bg-eco/20 text-eco" :
+                g.tagColor === "aqua" ? "bg-aqua/20 text-aqua" :
+                "bg-gradient-to-br from-eco/20 to-aqua/20 text-eco"
+              }`}>
                 {g.icon}
               </div>
               <h3 className="font-display font-semibold text-xl">{g.title}</h3>
-              {i === 4 && <span className="ml-auto text-[10px] uppercase tracking-widest text-aqua bg-aqua/10 px-2 py-1 rounded-full">Enfoque</span>}
+              {g.tag && (
+                <span className={`ml-auto text-[10px] uppercase tracking-widest px-2 py-1 rounded-full ${
+                  g.tagColor === "aqua" ? "text-aqua bg-aqua/10" : "text-eco bg-eco/10"
+                }`}>
+                  {g.tag}
+                </span>
+              )}
             </div>
+            {g.highlight && (
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                Los vecinos buscan <span className="text-eco font-medium">EcoPuertoRico</span> en la Play Store
+                y desde ahí avisan cuando tienen aceite disponible. Los choferes también usan la misma app
+                para gestionar sus rutas de recolección.
+              </p>
+            )}
             <ul className="space-y-2">
               {g.items.map((it) => (
                 <li key={it} className="flex items-center gap-3 text-muted-foreground">
-                  <div className={`w-1.5 h-1.5 rounded-full ${i === 4 ? "bg-aqua" : "bg-eco"}`} />
+                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                    g.highlight ? "bg-eco" : g.tagColor === "aqua" ? "bg-aqua" : "bg-eco"
+                  }`} />
                   {it}
                 </li>
               ))}
@@ -905,16 +952,76 @@ function Roadmap() {
 }
 
 /* ─────────────────────────────────────────────
-   PROPUESTAS COMPLEMENTARIAS (12)
+   PROPUESTAS COMPLEMENTARIAS (12) — con modales
 ───────────────────────────────────────────── */
 function Complementary() {
+  const [activeModal, setActiveModal] = useState<number | null>(null);
+
   const items = [
-    { icon: <Globe className="w-5 h-5" />, t: "Rediseño del sitio web municipal" },
-    { icon: <Sparkles className="w-5 h-5" />, t: "Landing del programa" },
-    { icon: <Users className="w-5 h-5" />, t: "Sistema de participación ciudadana" },
-    { icon: <BarChart3 className="w-5 h-5" />, t: "Tableros de gestión" },
-    { icon: <Megaphone className="w-5 h-5" />, t: "Estrategia de comunicación digital" },
+    {
+      icon: <Globe className="w-5 h-5" />,
+      t: "Rediseño del sitio web municipal",
+      desc: "El sitio web del municipio es la primera puerta de entrada digital para los vecinos. Proponemos un rediseño completo: arquitectura de información clara, diseño moderno, sección dedicada al programa de reciclaje, y acceso directo a la plataforma EcoPuertoRico.",
+      details: [
+        "Diseño responsive adaptado a todos los dispositivos",
+        "Sección institucional del programa de economía circular",
+        "Integración con el portal público de datos de recolección",
+        "Mejora de accesibilidad y velocidad de carga",
+        "Panel de noticias y novedades municipales",
+      ],
+    },
+    {
+      icon: <Sparkles className="w-5 h-5" />,
+      t: "Landing del programa",
+      desc: "Una página dedicada y de alto impacto para el programa de recolección de aceite. Pensada para campañas de comunicación, redes sociales y difusión institucional. Muestra datos reales en tiempo real: litros recolectados, impacto ambiental, rankings.",
+      details: [
+        "Métricas en vivo desde la plataforma",
+        "Diseño visual de alto impacto para compartir en redes",
+        "Formulario de adhesión para comercios y vecinos",
+        "Historia del programa y resultados acumulados",
+        "Optimizada para SEO y redes sociales",
+      ],
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      t: "Sistema de participación ciudadana",
+      desc: "Más allá del aceite: una plataforma modular de participación ciudadana que el municipio puede activar para otros programas. Encuestas, propuestas, votaciones y reportes de situaciones urbanas — todo centralizado y con trazabilidad.",
+      details: [
+        "Módulo de encuestas y consultas vecinales",
+        "Sistema de reportes de situaciones urbanas",
+        "Votaciones y priorización de obras",
+        "Historial de participación por barrio",
+        "Integración con el panel de gestión municipal",
+      ],
+    },
+    {
+      icon: <BarChart3 className="w-5 h-5" />,
+      t: "Tableros de gestión",
+      desc: "Visualizaciones ejecutivas del programa para uso interno del municipio. Datos consolidados, tendencias, comparativas mensuales y proyecciones — listos para presentar en reuniones, informes o comunicados de prensa.",
+      details: [
+        "Dashboard ejecutivo con KPIs del programa",
+        "Comparativas mensuales y anuales",
+        "Exportación de informes en PDF",
+        "Alertas automáticas por umbrales de recolección",
+        "Acceso diferenciado por roles (secretaría, intendencia)",
+      ],
+    },
+    {
+      icon: <Megaphone className="w-5 h-5" />,
+      t: "Estrategia de comunicación digital",
+      desc: "Enfoque Misiones diseña y ejecuta la estrategia de comunicación del programa: contenido para redes sociales, campañas de concientización, difusión de rankings y logros, e informes de impacto para medios locales.",
+      details: [
+        "Calendario editorial mensual de contenidos",
+        "Diseño de piezas para Instagram, Facebook y WhatsApp",
+        "Campañas de lanzamiento e hitos del programa",
+        "Notas de prensa para medios locales",
+        "Cobertura de eventos y jornadas de recolección",
+      ],
+    },
   ];
+
+  const active = activeModal !== null ? items[activeModal] : null;
+
   return (
     <section className="px-8 md:px-16 py-32 max-w-7xl mx-auto">
       <motion.div {...fadeUp}>
@@ -926,20 +1033,75 @@ function Complementary() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {items.map((it, i) => (
-          <motion.div
+          <motion.button
             key={it.t}
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-            className="glass rounded-3xl p-6 hover:bg-aqua/5 transition-colors group"
+            onClick={() => setActiveModal(i)}
+            className="glass rounded-3xl p-6 hover:bg-aqua/5 hover:border-aqua/30 transition-all group text-left cursor-pointer"
           >
             <div className="w-12 h-12 rounded-xl bg-aqua/15 text-aqua flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               {it.icon}
             </div>
-            <p className="font-medium">{it.t}</p>
-            <ArrowRight className="w-4 h-4 text-muted-foreground mt-4 group-hover:text-aqua transition-colors" />
-          </motion.div>
+            <p className="font-medium mb-4 leading-snug">{it.t}</p>
+            <div className="flex items-center gap-1 text-xs text-aqua opacity-0 group-hover:opacity-100 transition-opacity">
+              <span>Ver más</span>
+              <ArrowRight className="w-3 h-3" />
+            </div>
+          </motion.button>
         ))}
       </div>
+
+      {/* Modal */}
+      {active !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setActiveModal(null)}
+        >
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+          />
+
+          {/* Modal content */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 w-full max-w-lg glass rounded-3xl p-8 border border-aqua/20 shadow-2xl"
+          >
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="w-12 h-12 rounded-xl bg-aqua/15 text-aqua flex items-center justify-center mb-5">
+              {active.icon}
+            </div>
+
+            <h3 className="font-display font-semibold text-2xl mb-4">{active.t}</h3>
+            <p className="text-muted-foreground leading-relaxed mb-6">{active.desc}</p>
+
+            <div className="border-t border-white/5 pt-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Incluye</p>
+              <ul className="space-y-2">
+                {active.details.map((d) => (
+                  <li key={d} className="flex items-start gap-2 text-sm">
+                    <Check className="w-4 h-4 text-aqua shrink-0 mt-0.5" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }
