@@ -237,7 +237,7 @@ function PlatformModel() {
           </div>
           <ul className="space-y-3">
             {[
-              "Inversión inicial enorme ($15.000–$20.000 USD)",
+              "Inversión inicial elevada",
               "Proceso de licitación complejo",
               "Mantenimiento a cargo del municipio",
               "Tecnología que queda obsoleta",
@@ -267,7 +267,7 @@ function PlatformModel() {
           <ul className="space-y-3">
             {[
               "Baja barrera de entrada — acceso mensual",
-              "Sin licitación compleja ni inversión inicial",
+              "Menor complejidad administrativa",
               "Mantenimiento centralizado por Paralelo",
               "Mejora continua y evolución permanente",
               "Soporte técnico incluido",
