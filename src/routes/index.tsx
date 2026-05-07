@@ -1126,8 +1126,8 @@ function PricingModel() {
           Un modelo pensado <span className="text-gradient">para municipios</span>
         </h2>
         <p className="text-xl text-muted-foreground font-light max-w-2xl mb-16">
-          Sin inversión inicial. Sin licitación compleja. Sin equipos técnicos internos.
-          Solo un acceso mensual que incluye todo lo que el programa necesita para funcionar y crecer.
+          Un modelo flexible que permite incorporar herramientas digitales
+de forma progresiva, sin grandes inversiones iniciales.
         </p>
       </motion.div>
 
@@ -1135,20 +1135,20 @@ function PricingModel() {
         {[
           {
             icon: <Zap className="w-6 h-6" />,
-            title: "Acceso mensual",
-            desc: "Sin inversión inicial. El municipio activa el servicio y empieza a operar desde el primer día.",
+            title: "Modelo de incorporación",
+            desc: "Sin inversión inicial. El modelo permite incorporar la plataforma de manera progresiva, acompañando la implementación y evolución del programa.",
             color: "eco",
           },
           {
             icon: <RefreshCw className="w-6 h-6" />,
-            title: "Todo incluido",
-            desc: "Soporte técnico, actualizaciones, evolución de la plataforma y estrategia de comunicación de Enfoque Misiones.",
+            title: "Evolución continua",
+            desc: "La plataforma incorpora mantenimiento, actualizaciones y evolución permanente según las necesidades del programa.",
             color: "aqua",
           },
           {
             icon: <TrendingUp className="w-6 h-6" />,
-            title: "Sin reinversión",
-            desc: "La plataforma crece y mejora continuamente. El municipio no necesita volver a contratar ni licitar.",
+            title: "Escalable en el tiempo",
+            desc: "La estructura permite incorporar nuevas funcionalidades y herramientas sin reiniciar el proyecto desde cero.",
             color: "gold",
           },
         ].map((c, i) => (
@@ -1175,7 +1175,7 @@ function PricingModel() {
         className="rounded-3xl p-10 md:p-14 bg-gradient-to-br from-eco/15 to-aqua/10 border border-eco/20 text-center"
       >
         <p className="text-2xl md:text-3xl font-display font-semibold mb-4">
-          ¿Querés conocer los detalles del servicio?
+          Una primera conversación para evaluar posibilidades.
         </p>
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
           Agendamos una conversación para presentar el modelo, los módulos disponibles
