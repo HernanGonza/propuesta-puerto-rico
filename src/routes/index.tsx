@@ -110,7 +110,7 @@ function Hero() {
         <div className="glass rounded-2xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground shrink-0">Una iniciativa de</span>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            <img src={paraleloLogo} alt="Paralelo" className="h-8 object-contain" />
+            <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
             <div className="w-px h-7 bg-white/10 hidden sm:block" />
             <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-8 object-contain brightness-0 invert opacity-90" />
           </div>
