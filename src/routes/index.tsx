@@ -1237,7 +1237,7 @@ function Conclusion() {
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
           <img src={muniLogo} alt="Municipalidad de Puerto Rico" className="h-12 object-contain brightness-0 invert" />
           <div className="w-px h-10 bg-white/10" />
-          <img src={paraleloLogo} alt="Paralelo" className="h-8 object-contain" />
+          <img src={paraleloLogo} alt="Paralelo" className="h-17 object-contain" />
           <div className="w-px h-10 bg-white/10" />
           <img src={enfoqueLogo} alt="Enfoque Misiones" className="h-7 object-contain brightness-0 invert" />
         </div>
