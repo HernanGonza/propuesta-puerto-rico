@@ -6,7 +6,7 @@ import {
   BarChart3, Leaf, Sparkles, ArrowRight, Bell, Route as RouteIcon,
   Target, Eye, Megaphone, Zap, CheckCircle2, Globe, Database, Layers,
   TrendingUp, Award, Recycle, ChevronDown, Home, PieChart, User,
-  RefreshCw, HeadphonesIcon, Shield, X, Check, Smartphone,
+  RefreshCw, HeadphonesIcon, Shield, X, Check,
 } from "lucide-react";
 import paraleloLogo from "@/assets/paralelo-logo.png";
 import enfoqueLogo from "@/assets/enfoque-logo.png";
@@ -141,7 +141,7 @@ function Alliance() {
         {[
           {
             logo: paraleloLogo,
-            logoClass: "h-10",
+            logoClass: "h-20",
             title: "Paralelo",
             text: "Diseño y evolución de plataformas digitales para gestión pública. Servicios escalables, mantenidos de forma centralizada y adaptados al contexto municipal.",
             tag: "Tecnología",
@@ -471,14 +471,6 @@ function Flow() {
 function Features() {
   const groups = [
     {
-      icon: <Smartphone className="w-5 h-5" />,
-      title: "App Móvil EcoPuertoRico",
-      items: ["Disponible en Play Store", "Acceso para vecinos y choferes", "Avisos de aceite disponible", "Seguimiento de retiros en tiempo real"],
-      highlight: true,
-      tag: "App exclusiva",
-      tagColor: "eco",
-    },
-    {
       icon: <Truck className="w-5 h-5" />,
       title: "Panel de Gestión",
       items: ["Registro de entregas", "Historial completo", "Organización de rutas"],
@@ -489,7 +481,7 @@ function Features() {
     {
       icon: <Bell className="w-5 h-5" />,
       title: "Sistema de Avisos",
-      items: ["Vecinos y comercios notifican disponibilidad", "Geolocalización", "Priorización automática"],
+      items: ["App móvil exclusiva EcoPuertoRico (Play Store)", "Vecinos y comercios notifican disponibilidad", "Geolocalización", "Priorización automática", "Acceso diferenciado para vecinos y choferes"],
       highlight: false,
       tag: null,
       tagColor: "eco",
@@ -535,16 +527,13 @@ function Features() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: i * 0.08 }}
             className={`glass rounded-3xl p-8 transition-colors ${
-              g.highlight
-                ? "border-eco/50 bg-gradient-to-br from-eco/10 to-aqua/5 lg:col-span-1"
-                : g.tagColor === "aqua"
+              g.tagColor === "aqua"
                 ? "border-aqua/30 hover:border-aqua/50"
                 : "hover:border-eco/40"
             }`}
           >
             <div className="flex items-center gap-3 mb-6">
               <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                g.highlight ? "bg-eco/20 text-eco" :
                 g.tagColor === "aqua" ? "bg-aqua/20 text-aqua" :
                 "bg-gradient-to-br from-eco/20 to-aqua/20 text-eco"
               }`}>
@@ -559,18 +548,11 @@ function Features() {
                 </span>
               )}
             </div>
-            {g.highlight && (
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Los vecinos buscan <span className="text-eco font-medium">EcoPuertoRico</span> en la Play Store
-                y desde ahí avisan cuando tienen aceite disponible. Los choferes también usan la misma app
-                para gestionar sus rutas de recolección.
-              </p>
-            )}
             <ul className="space-y-2">
               {g.items.map((it) => (
                 <li key={it} className="flex items-center gap-3 text-muted-foreground">
                   <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                    g.highlight ? "bg-eco" : g.tagColor === "aqua" ? "bg-aqua" : "bg-eco"
+                    g.tagColor === "aqua" ? "bg-aqua" : "bg-eco"
                   }`} />
                   {it}
                 </li>
@@ -1013,7 +995,7 @@ function Complementary() {
       details: [
         "Calendario editorial mensual de contenidos",
         "Diseño de piezas para Instagram, Facebook y WhatsApp",
-        "Campañas de lanzamiento e hitos del programa",
+        "Campañas de lanzamiento y hitos del programa",
         "Notas de prensa para medios locales",
         "Cobertura de eventos y jornadas de recolección",
       ],
@@ -1026,9 +1008,18 @@ function Complementary() {
     <section className="px-8 md:px-16 py-32 max-w-7xl mx-auto">
       <motion.div {...fadeUp}>
         <SectionLabel num="12">Servicios complementarios</SectionLabel>
-        <h2 className="text-4xl md:text-5xl font-semibold mb-16 max-w-3xl">
-          Más allá de la plataforma: <span className="text-eco">un ecosistema digital completo</span>
+        <h2 className="text-4xl md:text-5xl font-semibold mb-4 max-w-3xl">
+          Más allá de la plataforma: <span className="text-eco">servicios adicionales</span>
         </h2>
+        <div className="flex items-start gap-3 mb-16 max-w-2xl">
+          <div className="w-5 h-5 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+            <Zap className="w-3 h-3" />
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            Estos servicios <span className="text-foreground font-medium">no están incluidos en la suscripción mensual</span> de la plataforma.
+            Son propuestas complementarias, cotizadas y contratadas de forma independiente, según las necesidades del municipio.
+          </p>
+        </div>
       </motion.div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -1085,8 +1076,16 @@ function Complementary() {
               {active.icon}
             </div>
 
-            <h3 className="font-display font-semibold text-2xl mb-4">{active.t}</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">{active.desc}</p>
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="font-display font-semibold text-2xl">{active.t}</h3>
+              <span className="ml-auto text-[10px] uppercase tracking-widest text-gold bg-gold/10 px-2 py-1 rounded-full shrink-0">
+                Servicio adicional
+              </span>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mb-3">{active.desc}</p>
+            <p className="text-xs text-muted-foreground/70 italic mb-6">
+              Este servicio se cotiza y contrata de forma independiente a la suscripción de la plataforma.
+            </p>
 
             <div className="border-t border-white/5 pt-5">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Incluye</p>
