@@ -1,6 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 
 function NotFoundComponent() {
   return (
@@ -25,44 +23,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EcoPuertoRico · Ecosistema Digital para Programas de Economía Circular" },
-      { name: "description", content: "Propuesta integral de plataforma digital para potenciar el programa de recolección de aceite del Municipio de Puerto Rico, Misiones. Paralelo × Enfoque Misiones." },
-      { property: "og:title", content: "EcoPuertoRico · Ecosistema Digital para Programas de Economía Circular" },
-      { name: "twitter:title", content: "EcoPuertoRico · Ecosistema Digital para Programas de Economía Circular" },
-      { property: "og:description", content: "Propuesta integral de plataforma digital para potenciar el programa de recolección de aceite del Municipio de Puerto Rico, Misiones. Paralelo × Enfoque Misiones." },
-      { name: "twitter:description", content: "Propuesta integral de plataforma digital para potenciar el programa de recolección de aceite del Municipio de Puerto Rico, Misiones." },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:type", content: "website" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="es">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return <Outlet />;
